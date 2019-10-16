@@ -10,5 +10,8 @@ public class ClassCasts {
         Class<House> houseType = House.class ;
         House h = houseType.cast(b) ;
         h = (House) b; // ... or just do this
+        //houseType.isInstance(b) ;
+        //将一个类对象转型为更加具体的类型
+        //houseType.asSubclass() ;
     }
 }
