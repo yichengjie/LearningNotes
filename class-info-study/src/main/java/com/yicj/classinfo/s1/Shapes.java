@@ -1,7 +1,6 @@
-package com.yicj.classinfo;
+package com.yicj.classinfo.s1;
 
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

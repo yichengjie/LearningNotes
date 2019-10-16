@@ -1,4 +1,4 @@
-package com.yicj.classinfo;
+package com.yicj.classinfo.s1;
 
 interface HasBatteries{}
 interface Waterproof{}
@@ -24,7 +24,7 @@ public class ToyTest {
     public static void main(String[] args) {
         Class c = null ;
         try {
-            c = Class.forName("com.yicj.classinfo.FancyToy") ;
+            c = Class.forName("com.yicj.classinfo.s1.FancyToy") ;
         }catch (ClassNotFoundException e){
             System.err.println("Can't find FancyToy");
             System.exit(1);

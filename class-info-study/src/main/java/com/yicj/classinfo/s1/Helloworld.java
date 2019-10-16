@@ -1,4 +1,4 @@
-package com.yicj.classinfo;
+package com.yicj.classinfo.s1;
 
 class Hello{
 	static {

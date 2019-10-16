@@ -1,4 +1,4 @@
-package com.yicj.classinfo;
+package com.yicj.classinfo.s1;
 
 class Candy{
     static {
@@ -25,11 +25,11 @@ public class SweetShop {
         new Candy() ;
         System.out.println("After creating Candy");
         try{
-            Class.forName("com.yicj.classinfo.Gum") ;
+            Class.forName("com.yicj.classinfo.s1.Gum") ;
         }catch (ClassNotFoundException e){
             System.out.println("Couldn't find Gum");
         }
-        System.out.println("After Class.forName(\"com.yicj.classinfo.Gum\")");
+        System.out.println("After Class.forName(\"com.yicj.classinfo.s1.Gum\")");
         new Cookie() ;
         System.out.println("After create Cookie");
         /**
@@ -37,7 +37,7 @@ public class SweetShop {
          * Loading Candy
          * After creating Candy
          * Loading Gum
-         * After Class.forName("com.yicj.classinfo.Gum")
+         * After Class.forName("com.yicj.classinfo.s1.Gum")
          * Loading Cookie
          * After create Cookie
          */

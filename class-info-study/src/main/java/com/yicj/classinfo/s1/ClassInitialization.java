@@ -1,4 +1,4 @@
-package com.yicj.classinfo;
+package com.yicj.classinfo.s1;
 
 import java.util.Random;
 
@@ -37,7 +37,7 @@ public class ClassInitialization {
         System.out.println("-------------------------");
         System.out.println(Initable2.staticNonFinal);
         System.out.println("--------------------------");
-        Class initable3 =  Class.forName("com.yicj.classinfo.Initable3") ;
+        Class initable3 =  Class.forName("com.yicj.classinfo.s1.Initable3") ;
         System.out.println("After creating Initable3 ref ");
         System.out.println(Initable3.staticNonFinal);
     }
