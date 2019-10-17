@@ -1,4 +1,7 @@
-package com.yicj.classinfo.pets;
+package com.yicj.classinfo.pets.s1;
+
+import com.yicj.classinfo.pets.model.Pet;
+import com.yicj.classinfo.pets.s1.PetCreator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,14 +11,14 @@ public class ForNameCreator extends PetCreator {
             new ArrayList<Class<? extends Pet>>() ;
 
     private static String [] typeNames = {
-        "com.yicj.classinfo.pets.Mutt",
-        "com.yicj.classinfo.pets.Pug",
-        "com.yicj.classinfo.pets.EgyptianMau",
-        "com.yicj.classinfo.pets.Manx",
-        "com.yicj.classinfo.pets.Cymric",
-        "com.yicj.classinfo.pets.Rat",
-        "com.yicj.classinfo.pets.Mouse",
-        "com.yicj.classinfo.pets.Hamster"
+        "com.yicj.classinfo.pets.model.Mutt",
+        "com.yicj.classinfo.pets.model.Pug",
+        "com.yicj.classinfo.pets.model.EgyptianMau",
+        "com.yicj.classinfo.pets.model.Manx",
+        "com.yicj.classinfo.pets.model.Cymric",
+        "com.yicj.classinfo.pets.model.Rat",
+        "com.yicj.classinfo.pets.model.Mouse",
+        "com.yicj.classinfo.pets.model.Hamster"
     } ;
 
     @SuppressWarnings("unchecked")

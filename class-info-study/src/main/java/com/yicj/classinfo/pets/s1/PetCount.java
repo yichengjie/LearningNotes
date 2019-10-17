@@ -1,4 +1,6 @@
-package com.yicj.classinfo.pets;
+package com.yicj.classinfo.pets.s1;
+
+import com.yicj.classinfo.pets.model.*;
 
 import java.util.HashMap;
 

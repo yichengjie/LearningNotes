@@ -1,4 +1,4 @@
-package com.yicj.classinfo.pets;
+package com.yicj.classinfo.pets.model;
 
 public class Pet extends Individual {
     public Pet(String name) {

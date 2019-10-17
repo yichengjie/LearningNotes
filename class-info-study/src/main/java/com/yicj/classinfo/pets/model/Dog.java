@@ -1,4 +1,4 @@
-package com.yicj.classinfo.pets;
+package com.yicj.classinfo.pets.model;
 
 public class Dog extends Pet {
     public Dog(String name){

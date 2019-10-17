@@ -1,4 +1,4 @@
-package com.yicj.classinfo.pets;
+package com.yicj.classinfo.pets.model;
 
 public class Individual {
     private static int counter = 0 ;

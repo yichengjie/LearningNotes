@@ -1,4 +1,4 @@
-package com.yicj.classinfo.pets;
+package com.yicj.classinfo.pets.model;
 
 public class Mouse extends Rodent {
     public Mouse(String name){

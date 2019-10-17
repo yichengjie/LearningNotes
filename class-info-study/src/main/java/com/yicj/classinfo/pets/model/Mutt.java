@@ -1,4 +1,4 @@
-package com.yicj.classinfo.pets;
+package com.yicj.classinfo.pets.model;
 
 public class Mutt extends Dog {
 
