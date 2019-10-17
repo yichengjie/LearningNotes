@@ -12,6 +12,7 @@
     </properties>
     <modules>
         <module>class-info-study</module>
+        <module>generic-study</module>
     </modules>
 
     <dependencies>
