@@ -1,6 +1,6 @@
 package com.yicj.classinfo.pets.s2;
 
-import com.yicj.classinfo.MapData;
+import com.yicj.classinfo.common.MapData;
 import com.yicj.classinfo.pets.model.Pet;
 
 import java.util.LinkedHashMap;

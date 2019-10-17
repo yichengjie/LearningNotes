@@ -1,4 +1,4 @@
-package com.yicj.classinfo;
+package com.yicj.classinfo.common;
 
 import java.util.LinkedHashMap;
 import java.util.List;

@@ -1,6 +1,5 @@
-package com.yicj.classinfo.pets.s3;
+package com.yicj.classinfo.factory;
 
-import java.io.PipedWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -35,7 +34,7 @@ class Filter extends Part{}
 
 class FuelFilter extends Filter {
     public static class Factory
-            implements com.yicj.classinfo.pets.s3.Factory<FuelFilter>{
+            implements com.yicj.classinfo.factory.Factory<FuelFilter> {
         public FuelFilter create(){
             return new FuelFilter() ;
         }
@@ -44,7 +43,7 @@ class FuelFilter extends Filter {
 
 class AirFilter extends Filter{
     public static class Factory
-            implements com.yicj.classinfo.pets.s3.Factory<AirFilter>{
+            implements com.yicj.classinfo.factory.Factory<AirFilter> {
         @Override
         public AirFilter create() {
             return new AirFilter();
@@ -54,7 +53,7 @@ class AirFilter extends Filter{
 
 class CabinAirFilter extends Filter{
     public static class Factory
-            implements com.yicj.classinfo.pets.s3.Factory<CabinAirFilter>{
+            implements com.yicj.classinfo.factory.Factory<CabinAirFilter> {
         @Override
         public CabinAirFilter create() {
             return new CabinAirFilter();
@@ -64,7 +63,7 @@ class CabinAirFilter extends Filter{
 
 class OilFilter extends Filter{
     public static class Factory
-            implements com.yicj.classinfo.pets.s3.Factory<OilFilter>{
+            implements com.yicj.classinfo.factory.Factory<OilFilter> {
         @Override
         public OilFilter create() {
             return new OilFilter();
@@ -76,7 +75,7 @@ class Belt extends Part {}
 
 class FanBelt extends Belt{
     public static class Factory
-            implements com.yicj.classinfo.pets.s3.Factory<FanBelt>{
+            implements com.yicj.classinfo.factory.Factory<FanBelt> {
         @Override
         public FanBelt create() {
             return new FanBelt();
@@ -86,7 +85,7 @@ class FanBelt extends Belt{
 
 class GeneratorBelt extends Belt{
     public static class Factory
-            implements com.yicj.classinfo.pets.s3.Factory<GeneratorBelt>{
+            implements com.yicj.classinfo.factory.Factory<GeneratorBelt> {
         @Override
         public GeneratorBelt create() {
             return new GeneratorBelt();
@@ -95,7 +94,7 @@ class GeneratorBelt extends Belt{
 }
 
 class PowerSteeringBelt extends Belt{
-    public static class Factory implements com.yicj.classinfo.pets.s3.Factory<PowerSteeringBelt>{
+    public static class Factory implements com.yicj.classinfo.factory.Factory<PowerSteeringBelt> {
         @Override
         public PowerSteeringBelt create() {
             return new PowerSteeringBelt();
