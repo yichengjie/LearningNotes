@@ -1,4 +1,4 @@
-package com.yicj.classinfo.nil;
+package com.yicj.classinfo.nil.common;
 
 public interface Null {
 }

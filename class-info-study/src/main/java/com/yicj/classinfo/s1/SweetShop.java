@@ -29,7 +29,7 @@ public class SweetShop {
         }catch (ClassNotFoundException e){
             System.out.println("Couldn't find Gum");
         }
-        System.out.println("After Class.forName(\"com.yicj.classinfo.s1.Gum\")");
+        System.out.println("After Class.forName(\"com.yicj.classinfo.person.Gum\")");
         new Cookie() ;
         System.out.println("After create Cookie");
         /**
@@ -37,7 +37,7 @@ public class SweetShop {
          * Loading Candy
          * After creating Candy
          * Loading Gum
-         * After Class.forName("com.yicj.classinfo.s1.Gum")
+         * After Class.forName("com.yicj.classinfo.person.Gum")
          * Loading Cookie
          * After create Cookie
          */

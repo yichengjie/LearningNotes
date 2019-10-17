@@ -1,4 +1,5 @@
 package com.yicj.classinfo.intefs;
 
-public class A {
+public interface A {
+    void f() ;
 }

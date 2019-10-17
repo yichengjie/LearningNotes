@@ -1,4 +1,6 @@
 package com.yicj.classinfo.nil.robot;
 
-public class Operation {
+public interface Operation {
+    String description () ;
+    void command() ;
 }

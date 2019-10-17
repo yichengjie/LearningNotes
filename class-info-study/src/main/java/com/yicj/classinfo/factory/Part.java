@@ -7,7 +7,6 @@ import java.util.Random;
 public class Part {
     static List<Factory<? extends Part>> partFactories =
             new ArrayList<Factory<? extends Part>>() ;
-
     static {
         partFactories.add(new FuelFilter.Factory()) ;
         partFactories.add(new AirFilter.Factory()) ;
@@ -33,8 +32,14 @@ public class Part {
 class Filter extends Part{}
 
 class FuelFilter extends Filter {
+   static {
+       System.out.println("class FuelFilter init");
+   }
     public static class Factory
             implements com.yicj.classinfo.factory.Factory<FuelFilter> {
+       static {
+           System.out.println("class FuelFilter.Factory init");
+       }
         public FuelFilter create(){
             return new FuelFilter() ;
         }
@@ -42,8 +47,14 @@ class FuelFilter extends Filter {
 }
 
 class AirFilter extends Filter{
+    static {
+        System.out.println("class AirFilter init");
+    }
     public static class Factory
             implements com.yicj.classinfo.factory.Factory<AirFilter> {
+        static {
+            System.out.println("class AirFilter.Factory init");
+        }
         @Override
         public AirFilter create() {
             return new AirFilter();
@@ -52,8 +63,14 @@ class AirFilter extends Filter{
 }
 
 class CabinAirFilter extends Filter{
+    static {
+        System.out.println("class CabinAirFilter init");
+    }
     public static class Factory
             implements com.yicj.classinfo.factory.Factory<CabinAirFilter> {
+        static {
+            System.out.println("class CabinAirFilter.Factory init");
+        }
         @Override
         public CabinAirFilter create() {
             return new CabinAirFilter();
@@ -62,8 +79,14 @@ class CabinAirFilter extends Filter{
 }
 
 class OilFilter extends Filter{
+    static {
+        System.out.println("class OilFilter init");
+    }
     public static class Factory
             implements com.yicj.classinfo.factory.Factory<OilFilter> {
+        static {
+            System.out.println("class OilFilter.Factory init");
+        }
         @Override
         public OilFilter create() {
             return new OilFilter();
@@ -74,8 +97,14 @@ class OilFilter extends Filter{
 class Belt extends Part {}
 
 class FanBelt extends Belt{
+    static {
+        System.out.println("class FanBelt init");
+    }
     public static class Factory
             implements com.yicj.classinfo.factory.Factory<FanBelt> {
+        static {
+            System.out.println("class FanBelt.Factory init");
+        }
         @Override
         public FanBelt create() {
             return new FanBelt();
@@ -84,8 +113,14 @@ class FanBelt extends Belt{
 }
 
 class GeneratorBelt extends Belt{
+    static {
+        System.out.println("class GeneratorBelt init");
+    }
     public static class Factory
             implements com.yicj.classinfo.factory.Factory<GeneratorBelt> {
+        static {
+            System.out.println("class GeneratorBelt.Factory init");
+        }
         @Override
         public GeneratorBelt create() {
             return new GeneratorBelt();
@@ -94,7 +129,13 @@ class GeneratorBelt extends Belt{
 }
 
 class PowerSteeringBelt extends Belt{
+    static {
+        System.out.println("class PowerSteeringBelt init");
+    }
     public static class Factory implements com.yicj.classinfo.factory.Factory<PowerSteeringBelt> {
+        static {
+            System.out.println("class PowerSteeringBelt.Factory init");
+        }
         @Override
         public PowerSteeringBelt create() {
             return new PowerSteeringBelt();

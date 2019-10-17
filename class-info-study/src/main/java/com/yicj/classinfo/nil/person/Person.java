@@ -1,4 +1,6 @@
-package com.yicj.classinfo.nil;
+package com.yicj.classinfo.nil.person;
+
+import com.yicj.classinfo.nil.common.Null;
 
 public class Person {
 
@@ -18,7 +20,7 @@ public class Person {
         return "Person : " + first + " " + last + " " + address ;
     }
 
-    public static class NullPerson extends Person implements Null{
+    public static class NullPerson extends Person implements Null {
         private NullPerson(){
             super("None","None","None");
         }
