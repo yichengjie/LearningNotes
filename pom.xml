@@ -13,6 +13,7 @@
     <modules>
         <module>class-info-study</module>
         <module>generic-study</module>
+        <module>container-deep-study</module>
     </modules>
 
     <dependencies>
