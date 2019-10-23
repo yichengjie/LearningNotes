@@ -12,6 +12,12 @@
     <artifactId>generic-study</artifactId>
     <dependencies>
         <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>com.yicj.study</groupId>
             <artifactId>class-info-study</artifactId>
             <version>0.0.1-SNAPSHOT</version>
