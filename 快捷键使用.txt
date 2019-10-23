@@ -2,7 +2,7 @@
 2.Ctrl+F12    -   源码中查找方法快捷键
 3.Ctrl+Alt+B  -   查看接口的实现类
 4.Ctrl+Alt+U  -   查看类继承关系图
-5.Ctrl+H      -   查看当前类的继承树：
+5.Ctrl+H      -   查看当前类的继承树
 6.Ctrl+Alt+F7 -   查看定义的变量在哪里被调用
 7.Alt+7       -   查看一个类中有什么方法      (点左侧边栏Structure)
 8.Ctrl+Alt+H  -   查看Java方法调用树(被调/主调)
