@@ -11,7 +11,7 @@ public class ArrayListTest {
     @Test
     public void test1() {
         //测试在遍历的时候使用迭代器移除元素
-        List<String> list = new ArrayList<>();
+        List<String> list = new java.util.ArrayList<>();
         list.add("beijing");
         list.add("tianjing");
         list.add("shanghai");
@@ -26,7 +26,7 @@ public class ArrayListTest {
     @Test
     public void test2() {
         //测试list.toArray带参数和不带参数时的两种情况
-        List<String> list = new ArrayList<String>();
+        List<String> list = new java.util.ArrayList<String>();
         list.add("1");
         list.add("2");
         //这里能正确运行
