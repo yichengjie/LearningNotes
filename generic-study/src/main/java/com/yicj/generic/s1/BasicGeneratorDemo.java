@@ -4,6 +4,7 @@ import com.yicj.generic.common.BasicGenerator;
 import com.yicj.generic.common.Generator;
 
 public class BasicGeneratorDemo {
+
     public static void main(String[] args) {
         Generator<CountedObject> gen =
                 BasicGenerator.create(CountedObject.class) ;

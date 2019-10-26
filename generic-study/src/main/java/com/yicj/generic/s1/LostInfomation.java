@@ -1,8 +1,6 @@
 package com.yicj.generic.s1;
 
-import sun.rmi.runtime.Log;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 class Frob{}
