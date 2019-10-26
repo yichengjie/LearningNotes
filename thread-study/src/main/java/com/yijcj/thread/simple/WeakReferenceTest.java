@@ -4,6 +4,7 @@ package com.yijcj.thread.simple;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
+import lombok.ToString;
 
 import java.lang.ref.WeakReference;
 
@@ -20,22 +21,29 @@ public class WeakReferenceTest {
         }
     }
 
-    static class WeakReferenceNode extends WeakReference<Car> {
+    @Data
+    @AllArgsConstructor
+    @ToString
+    static class Person {
+       private String username ;
+       private String addr ;
+    }
+
+    static class WeakReferenceNode<K,V> extends WeakReference<K> {
         @Getter
-        private String username ;
+        private V value ;
         //1.注意 这里不要使用变量保存car，否则一直不能被回收
         //@Getter
         //private Car car ;
-        public WeakReferenceNode(Car car,String username) {
+        public WeakReferenceNode(K car,V value) {
             super(car);
-            this.username = username ;
+            this.value = value ;
         }
     }
 
     public static void main(String[] args) {
-        test1() ;
-        //test2() ;
-        //test3() ;
+        //test1() ;
+        test2() ;
     }
 
     private static void test1(){
@@ -47,7 +55,7 @@ public class WeakReferenceTest {
                 i++;
                 System.out.println("Object is alive for "+i+" loops - "+weakCar);
             }else{
-                System.out.println("Object has been collected.");
+                System.out.println("Object has been collected." );
                 break;
             }
         }
@@ -56,14 +64,15 @@ public class WeakReferenceTest {
 
     private static void test2(){
         Car car = new Car(22000,"silver") ;
-        WeakReference<Car> weakCar = new WeakReferenceNode(car,"张三") ;
+        Person person = new Person("张三","BJS") ;
+        WeakReferenceNode<Car,Person> weakCar = new WeakReferenceNode(car, person) ;
         int i = 0 ;
         while (true){
             if(weakCar.get() != null){
                 i ++ ;
                 System.out.println("Object is alive for " +i+ " loops " + weakCar);
             }else {
-                System.out.println("Object has been collected.");
+                System.out.println("Object has been collected, but value is good : " + weakCar.getValue());
                 break;
             }
         }
