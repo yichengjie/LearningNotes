@@ -23,8 +23,9 @@ public class WeakReferenceTest {
     static class WeakReferenceNode extends WeakReference<Car> {
         @Getter
         private String username ;
+        //1.注意 这里不要使用变量保存car，否则一直不能被回收
         //@Getter
-        //private Car car ; //注意这里不要使用变量保存car，否则一直不能被回收
+        //private Car car ;
         public WeakReferenceNode(Car car,String username) {
             super(car);
             this.username = username ;
@@ -32,8 +33,9 @@ public class WeakReferenceTest {
     }
 
     public static void main(String[] args) {
-        //test1() ;
-        test2() ;
+        test1() ;
+        //test2() ;
+        //test3() ;
     }
 
     private static void test1(){
@@ -49,6 +51,7 @@ public class WeakReferenceTest {
                 break;
             }
         }
+        //2. 注意 这里千万不能有car的引用，否则一直car一直不会被回收
     }
 
     private static void test2(){
@@ -64,8 +67,8 @@ public class WeakReferenceTest {
                 break;
             }
         }
-        System.out.println("end car : " + car);
-
+        //2. 注意 这里千万不能有car的引用，否则一直car一直不会被回收
+        //System.out.println(car);
     }
 
 }
