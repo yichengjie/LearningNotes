@@ -8,9 +8,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class ThreadPoolExecutorTest {
 
-
-    //其中线程1-4先占满了核心线程和最大线程数，然后5-6进入等待队列
-    //7-10被直接忽略拒绝执行，等1-4线程中有线程执行完以后通知5-6线程继续执行
+    //1，由于线程预启动，首先创建了1，2号线程，然后task1，task2被执行；
+    //2，但任务提交没有结束，此时任务task3，task6到达发现核心线程已经满了，进入等待队列；
+    //3，等待队列满后创建任务线程3，4执行任务task3，task6，同时task4，task5进入队列；
+    //4，此时创建线程数（4）等于最大线程数，且队列已满，所以7，8，9，10任务被拒绝；
+    //5，任务执行完毕后回头来执行task4，task5，队列清空。
     public static void main(String[] args) throws IOException {
 
         int corePoolSize = 2 ;
