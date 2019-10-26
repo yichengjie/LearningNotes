@@ -8,6 +8,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class ThreadPoolExecutorTest {
 
+
+    //其中线程1-4先占满了核心线程和最大线程数，然后5-6进入等待队列
+    //7-10被直接忽略拒绝执行，等1-4线程中有线程执行完以后通知5-6线程继续执行
     public static void main(String[] args) throws IOException {
 
         int corePoolSize = 2 ;
@@ -34,7 +37,7 @@ public class ThreadPoolExecutorTest {
         private final AtomicInteger mThreadNum = new AtomicInteger(1) ;
         @Override
         public Thread newThread(Runnable r) {
-            Thread t = new Thread("my-thread-" + mThreadNum.getAndIncrement()) ;
+            Thread t = new Thread(r,"my-thread-" + mThreadNum.getAndIncrement()) ;
             System.out.println(t.getName() + " has bean created");
             return t;
         }
@@ -72,7 +75,7 @@ public class ThreadPoolExecutorTest {
 
         @Override
         public String toString() {
-            return "MyTask [name=]" + name +"]" ;
+            return "MyTask [name= " + name +"]" ;
         }
     }
 
