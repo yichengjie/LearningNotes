@@ -80,4 +80,22 @@ public class WeakReferenceTest {
         //System.out.println(car);
     }
 
+    private void test3(){
+        Car car = new Car(22000,"silver");
+        WeakReference<Car> weakCar = new WeakReference<>(car);
+        int i=0;
+        while(true){
+            //weak reference指向的object就不会被回收了. 因为还有一个strong reference car指向它.
+            System.out.println("here is the strong reference 'car' "+car);//use the strong reference in the while loop
+            if(weakCar.get()!=null){
+                i++;
+                System.out.println("Object is alive for "+i+" loops - "+weakCar);
+            }else{
+                System.out.println("Object has been collected.");
+                break;
+            }
+        }
+    }
+
+
 }
