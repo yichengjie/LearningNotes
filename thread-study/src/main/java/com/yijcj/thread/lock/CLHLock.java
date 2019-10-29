@@ -52,4 +52,8 @@ public class CLHLock  implements Lock {
     public boolean tryLock(long time, TimeUnit unit) throws InterruptedException {
         return false;
     }
+
+    public class QNode {
+        public boolean locked;
+    }
 }
