@@ -3,6 +3,10 @@ package com.yijcj.thread.api;
 import java.util.concurrent.atomic.AtomicInteger;
 
 //将每个线程的排队号放到ThreadLocal中
+//TickLock存在的问题:
+//    多处理器系统上，每个进程/线程占用的处理器都在读写同一个变量serviceNum ，
+//    每次读写操作都必须在多个处理器缓存之间进行缓存同步，这会导致繁重的系统总线和内存的流量，
+//    大大降低系统整体的性能。
 public class TicketLockV2 {
     //服务号
     private AtomicInteger serviceNum = new AtomicInteger() ;
