@@ -4,7 +4,7 @@ import sun.misc.Unsafe;
 
 import java.lang.reflect.Constructor;
 import java.util.concurrent.locks.LockSupport;
-
+//https://www.cnblogs.com/qingquanzi/p/8274078.html
 public class MyLock {
     private volatile int state = 0 ;
     private ThreadList threadList = new ThreadList() ;
@@ -20,7 +20,10 @@ public class MyLock {
             e.printStackTrace();
         }
     }
-
+    //线程使用lock方法进行加锁，cas将state从0修改1，
+    // 修改成功则加锁成功，lock方法返回，
+    // 否则调用addNodeAndWait方法将线程加入ThreadList队列,
+    // 并使用LockSupport将线程挂起
     public void lock(){
         if(!compareAndSetState(0,1)){
             addNodeAndWait() ;

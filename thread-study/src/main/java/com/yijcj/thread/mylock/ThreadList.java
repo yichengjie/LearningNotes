@@ -31,6 +31,8 @@ public class ThreadList {
             Node first = getHead() ;
             node.setNext(first);
             //如果head目前任然为等于first点的话，将node赋值给head
+            //ThreadList.insert返回boolean类型的值，用来处理当前只有一个等待的线程时，
+            // 重新获取以下锁，防止永远不被唤醒
             if(unsafe.compareAndSwapObject(this,headOffset,first,node)){
                 return first == null ;
             }
