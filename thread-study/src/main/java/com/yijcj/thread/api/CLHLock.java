@@ -1,5 +1,6 @@
 package com.yijcj.thread.api;
 
+import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 
