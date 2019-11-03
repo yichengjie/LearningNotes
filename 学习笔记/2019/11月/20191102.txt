@@ -1,0 +1,45 @@
+spring源码学习博客:https://blog.csdn.net/qq_23536449/article/list?t=1
+
+tomcat8 redis session共享:https://blog.csdn.net/qq_23536449/article/details/89876757
+step1.下载jar
+      浏览器打开https://github.com/redisson/redisson/tree/master/redisson-tomcat
+      下载redisson-all-3.8.2.jar和redisson-tomcat-8-3.8.2.jar
+step2.将jar拷贝至TOMCAT_BASE/lib
+step3.在TOMCAT_BASE/conf目录创建redisson.conf配置文件，文件内容如下:
+    {
+      "singleServerConfig":{
+      "idleConnectionTimeout":10000,
+      "pingTimeout":1000,
+      "connectTimeout":10000,
+      "timeout":3000,
+      "retryAttempts":3,
+      "retryInterval":1500,
+      "password":"yourpwd",
+      "subscriptionsPerConnection":5,
+      "clientName":null,
+      "address": "redis://host:ip",
+      "subscriptionConnectionMinimumIdleSize":1,
+      "subscriptionConnectionPoolSize":50,
+      "connectionMinimumIdleSize":32,
+      "connectionPoolSize":64,
+      "database":5,
+      "dnsMonitoringInterval":5000
+   },
+   "threads":0,
+   "nettyThreads":0,
+   "codec":{
+      "class":"org.redisson.codec.JsonJacksonCodec"
+   },
+   "transportMode":"NIO"
+  }
+step4.修改TOMCAT_BASE/conf/context.xml添加如下配置
+  <Manager className="org.redisson.tomcat.RedissonSessionManager"
+            configPath="${catalina.base}/conf/redisson.conf" readMode="REDIS" updateMode="DEFAULT"/>
+step5.重启tomcat后就可以看到redis里有redisson为key的session缓存数据了
+
+
+遇到的问题&解决方案
+再结合我们的CAS(单点登录)，验证ST生成Session并将session保存至redis时报错如下:
+更改redissson.conf如下配置
+"class":"org.redisson.codec.JsonJacksonCodec"->"class":"org.redisson.codec.SerializationCodec"
+

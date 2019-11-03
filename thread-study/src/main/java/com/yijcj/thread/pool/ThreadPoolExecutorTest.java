@@ -41,7 +41,7 @@ public class ThreadPoolExecutorTest {
         @Override
         public Thread newThread(Runnable r) {
             Thread t = new Thread(r,"my-thread-" + mThreadNum.getAndIncrement()) ;
-            System.out.println(t.getName() + " has bean created");
+            System.out.println(t.getName() + " has entity created");
             return t;
         }
     }
