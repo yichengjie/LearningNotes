@@ -1,0 +1,18 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--
+        1. 单例模式的bean只会被创建一次，IoC容器会缓存该bean实例以供下次使用；
+           原型模式的bean每次都会创建一个全新的bean，IoC容器不会缓存该bean的实例。
+           那么如果现在有一个单例模式的bean引用了一个原型模式的bean呢？如果无特殊处理，
+           则被引用的原型模式的bean也会被缓存，这就违背了原型模式的初衷，
+           这时使用lookup-method注入可以解决该问题。
+    -->
+    <bean id="car" class="com.yicj.lookup.entity.Car">
+        <property name="taxi" ref="taxi" />
+        <lookup-method name="createTaxi" bean="taxi" />
+    </bean>
+    <bean id="taxi" class="com.yicj.lookup.entity.Taxi" scope="prototype"/>
+</beans>
