@@ -3,12 +3,8 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
-<!--    <bean id="user1" class="com.yicj.hello.entity.User">-->
-<!--        <property name="username" value="zhang san!!!"/>-->
-<!--    </bean>-->
-    <bean id="user2" class="com.yicj.hello.factory.UserFactory">
-        <property name="username" value="李四 !!!"/>
-        <property name="addr" value="北京!!!"/>
+    <bean id="user1" class="com.yicj.hello.entity.User">
+        <property name="username" value="zhang san!!!"/>
     </bean>
 </beans>
 
