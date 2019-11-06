@@ -1,0 +1,15 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--
+       主要作用就是替换方法体及其返回值，其实现也比较简单
+    -->
+    <bean id="dogReplaceMethod" class="com.yicj.replaced.busi.ReplaceDog" />
+    <bean id="originalDogReplaceMethod" class="com.yicj.replaced.busi.OriginalDog">
+        <replaced-method name="sayHello" replacer="dogReplaceMethod">
+            <arg-type match="java.lang.String" />
+        </replaced-method>
+    </bean>
+</beans>
