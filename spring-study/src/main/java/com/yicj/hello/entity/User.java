@@ -1,4 +1,4 @@
-package com.yicj.entity;
+package com.yicj.hello.entity;
 
 import lombok.Data;
 

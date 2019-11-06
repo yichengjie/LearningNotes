@@ -1,7 +1,6 @@
-package com.yicj.factory;
+package com.yicj.hello.factory;
 
-import com.yicj.entity.User;
-import lombok.Getter;
+import com.yicj.hello.entity.User;
 import lombok.Setter;
 import org.springframework.beans.factory.FactoryBean;
 
