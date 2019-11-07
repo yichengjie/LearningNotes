@@ -11,14 +11,14 @@ public class ForNameCreator extends PetCreator {
             new ArrayList<Class<? extends Pet>>() ;
 
     private static String [] typeNames = {
-        "com.yicj.classinfo.pets.model.Mutt",
-        "com.yicj.classinfo.pets.model.Pug",
-        "com.yicj.classinfo.pets.model.EgyptianMau",
-        "com.yicj.classinfo.pets.model.Manx",
-        "com.yicj.classinfo.pets.model.Cymric",
-        "com.yicj.classinfo.pets.model.Rat",
-        "com.yicj.classinfo.pets.model.Mouse",
-        "com.yicj.classinfo.pets.model.Hamster"
+        "com.yicj.classinfo.pets.entity.Mutt",
+        "com.yicj.classinfo.pets.entity.Pug",
+        "com.yicj.classinfo.pets.entity.EgyptianMau",
+        "com.yicj.classinfo.pets.entity.Manx",
+        "com.yicj.classinfo.pets.entity.Cymric",
+        "com.yicj.classinfo.pets.entity.Rat",
+        "com.yicj.classinfo.pets.entity.Mouse",
+        "com.yicj.classinfo.pets.entity.Hamster"
     } ;
 
     @SuppressWarnings("unchecked")

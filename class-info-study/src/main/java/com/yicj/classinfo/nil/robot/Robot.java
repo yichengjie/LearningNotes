@@ -14,7 +14,7 @@ public interface Robot {
                 System.out.println("[Null Robot]");
             }
             System.out.println("Robot name : " + r.name());
-            System.out.println("Robot model: " + r.mode());
+            System.out.println("Robot entity: " + r.mode());
             for(Operation operation : r.operations()){
                 operation.command();
             }

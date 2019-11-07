@@ -1,0 +1,24 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="userManager" class="com.yicj.date.entity.UserManager">
+        <property name="dataValue" value="2013-03-15"/>
+    </bean>
+
+    <!--使用自定义属性编辑器，继承PropertyEditorSupport,重写setAsText方法-->
+    <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer" >
+        <property name="customEditors">
+            <map>
+                <entry key="java.util.Date">
+                    <bean class="com.yicj.date.DatePropertyEditor" >
+                        <property name="format" value="yyyy-MM-dd"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+</beans>
+
+
