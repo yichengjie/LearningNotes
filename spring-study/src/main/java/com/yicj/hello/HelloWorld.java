@@ -7,10 +7,10 @@ import org.springframework.core.io.ClassPathResource;
 
 public class HelloWorld {
     public static void main(String[] args) {
-        test1() ;
-        //test2() ;
+        //test1() ;
+        test2() ;
     }
-    private static void test2(){
+    private static void test1(){
         //ApplicationContext context = new ClassPathXmlApplicationContext("com/yicj/hello/beans.xml") ;
         ClassPathResource resource = new ClassPathResource("com/yicj/hello/beans.xml" );
         XmlBeanFactory factory = new XmlBeanFactory(resource) ;
@@ -19,7 +19,7 @@ public class HelloWorld {
         //System.out.println(user1);
     }
 
-    private static void test1(){
+    private static void test2(){
         ApplicationContext factory = new ClassPathXmlApplicationContext("com/yicj/hello/beans.xml") ;
         System.out.println("--------------------------------------");
         Object user1 = factory.getBean("user1");
