@@ -13,7 +13,7 @@
         <spring.version>3.1.1.RELEASE</spring.version>
     </properties>
 
-    <artifactId>spring-study</artifactId>
+    <artifactId>spring-ioc-study</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
