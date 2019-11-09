@@ -1,5 +1,5 @@
 package com.yicj.hello;
 
-public interface IHello {
-    void hello() ;
+public interface IHelloService {
+    String hello() ;
 }
