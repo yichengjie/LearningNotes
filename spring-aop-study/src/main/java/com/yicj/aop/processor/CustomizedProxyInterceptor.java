@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CustomizedProxyInterceptor implements MethodInterceptor  {
     //用于接收切面信息
-    List<ProxyBeanHolder> proxyBeanHolderList;
+    private List<ProxyBeanHolder> proxyBeanHolderList;
     public CustomizedProxyInterceptor(List<ProxyBeanHolder> proxyBeanHolderList){
         this.proxyBeanHolderList = proxyBeanHolderList;
     }
@@ -19,7 +19,8 @@ public class CustomizedProxyInterceptor implements MethodInterceptor  {
         //处理前置及环绕前置通知
         for (ProxyBeanHolder proxyBeanHolder: proxyBeanHolderList) {
             String annotationName = proxyBeanHolder.getAnnotationName();
-            if (annotationName.equals(ConfigurationUtil.BEFORE)||annotationName.equals(ConfigurationUtil.AROUND))
+            if (annotationName.equals(ConfigurationUtil.BEFORE) ||
+                    annotationName.equals(ConfigurationUtil.AROUND))
                 this.doProxy(proxyBeanHolder);
         }
         Object result ;
@@ -32,7 +33,8 @@ public class CustomizedProxyInterceptor implements MethodInterceptor  {
         //处理前置及环绕前置通知
         for (ProxyBeanHolder proxyBeanHolder: proxyBeanHolderList) {
             String annotationName = proxyBeanHolder.getAnnotationName();
-            if (annotationName.equals(ConfigurationUtil.AFTER)||annotationName.equals(ConfigurationUtil.AROUND))
+            if (annotationName.equals(ConfigurationUtil.AFTER) ||
+                    annotationName.equals(ConfigurationUtil.AROUND))
                 this.doProxy(proxyBeanHolder);
         }
         return result;
@@ -45,13 +47,15 @@ public class CustomizedProxyInterceptor implements MethodInterceptor  {
     private void doProxy(ProxyBeanHolder proxyBeanHolder){
         String className = proxyBeanHolder.getClassName();
         String methodName = proxyBeanHolder.getMethodName();
-        Object classzz = null;
+        Object clazz ;
         try {
-            classzz = Class.forName(className);
-            Method[] methods = ((Class) classzz).getMethods();
-            for (Method poxyMethod:methods)
-                if (poxyMethod.getName().equals(methodName))
-                    poxyMethod.invoke(((Class) classzz).newInstance(),null);
+            clazz = Class.forName(className);
+            Method[] methods = ((Class) clazz).getMethods();
+            for (Method poxyMethod : methods){
+                if (poxyMethod.getName().equals(methodName)){
+                    poxyMethod.invoke(((Class) clazz).newInstance(),null);
+                }
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

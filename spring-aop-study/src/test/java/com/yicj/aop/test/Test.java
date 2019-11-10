@@ -6,9 +6,11 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 //https://blog.csdn.net/baomw/article/details/84262006
 public class Test {
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext annotationConfigApplicationContext =
+        AnnotationConfigApplicationContext context  =
                 new AnnotationConfigApplicationContext(Appconfig.class);
-        annotationConfigApplicationContext.getBean(IndexDao.class).query2();
-        annotationConfigApplicationContext.getBean(IndexDao.class).query();
+        System.out.println("===================================");
+        context.getBean(IndexDao.class).query2();
+        System.out.println("===================================");
+        context.getBean(IndexDao.class).query();
     }
 }

@@ -29,7 +29,8 @@ public class RegisterBeanFactoryPostProcessor implements BeanFactoryPostProcesso
     public static volatile List<ProxyBeanHolder> roxyBeanHolderList = new Vector<>();
 
     @Override
-    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
+    public void postProcessBeanFactory(
+            ConfigurableListableBeanFactory beanFactory) throws BeansException {
         //获取所有的bdName
         String[] beanDefinitionNames = beanFactory.getBeanDefinitionNames();
         for (String beanDefinitionName:beanDefinitionNames){
@@ -38,7 +39,8 @@ public class RegisterBeanFactoryPostProcessor implements BeanFactoryPostProcesso
             //判断bd是否是一个注解bd
             if (beanDefinition instanceof AnnotatedBeanDefinition) {
                 //取得bd上的所有注解
-                AnnotationMetadata metadata = ((AnnotatedBeanDefinition) beanDefinition).getMetadata();
+                AnnotationMetadata metadata =
+                        ((AnnotatedBeanDefinition) beanDefinition).getMetadata();
                 Set<String> Annotations = metadata.getAnnotationTypes();
                 //循环所有注解，找到aop切面注解类
                 for (String annotation:Annotations)
@@ -61,9 +63,12 @@ public class RegisterBeanFactoryPostProcessor implements BeanFactoryPostProcesso
                 Annotation[] annotations = method.getAnnotations();
                 for(Annotation annotation:annotations) {
                     String annotationName = annotation.annotationType().getName();
-                    if(annotationName.equals(ConfigurationUtil.BEFORE)||annotationName.equals(ConfigurationUtil.AFTER)||
-                            annotationName.equals(ConfigurationUtil.AROUND))
+                    if(annotationName.equals(ConfigurationUtil.BEFORE) ||
+                            annotationName.equals(ConfigurationUtil.AFTER)||
+                            annotationName.equals(ConfigurationUtil.AROUND)){
                         doScan(className,method,annotation);
+                    }
+
                 }
             }
         } catch (ClassNotFoundException e) {
@@ -98,21 +103,25 @@ public class RegisterBeanFactoryPostProcessor implements BeanFactoryPostProcesso
         }
         if (!packagePath.isEmpty()){
             String rootPath = this.getClass().getResource("/").getPath();
-            String targetPackagePath = rootPath + packagePath.replace(".","/");
+            String targetPackagePath = rootPath +
+                    packagePath.replace(".","/");
             File file = new File(targetPackagePath);
             File[] fileList = file.listFiles();
             List<ProxyBeanHolder> lroxyBeanHolderList = null;
-            for (File wjFile:fileList) {
-                if (wjFile.isFile()) {//判断是否为文件
-                    String targetClass = packagePath+"."+wjFile.getName().replace(".class","");
+            for (File tmpFile : fileList) {
+                if (tmpFile.isFile()) {//判断是否为文件
+                    String targetClass = packagePath+"."+tmpFile.getName()
+                            .replace(".class","");
                     try {
-                        lroxyBeanHolderList = ConfigurationUtil.classzzProxyBeanHolder.get(targetClass);
-                    }catch(Exception e){
-                    }
-                    if (lroxyBeanHolderList==null)
+                        lroxyBeanHolderList = ConfigurationUtil
+                                .classzzProxyBeanHolder.get(targetClass);
+                    }catch(Exception e){ e.printStackTrace();}
+                    if (lroxyBeanHolderList==null){
                         lroxyBeanHolderList = new Vector<>();
+                    }
                     lroxyBeanHolderList.add(proxyBeanHolder);
-                    ConfigurationUtil.classzzProxyBeanHolder.put(targetClass,lroxyBeanHolderList);
+                    ConfigurationUtil.classzzProxyBeanHolder
+                            .put(targetClass,lroxyBeanHolderList);
                 }
             }
 
