@@ -17,5 +17,6 @@ public class Test {
         for (Class<?> anInterface : interfaces) {
             System.out.println("interfaceName: " + anInterface.getName());
         }
+        Thread.dumpStack();
     }
 }
