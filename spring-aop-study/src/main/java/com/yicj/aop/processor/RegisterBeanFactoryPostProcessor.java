@@ -33,7 +33,7 @@ public class RegisterBeanFactoryPostProcessor implements BeanFactoryPostProcesso
             ConfigurableListableBeanFactory beanFactory) throws BeansException {
         //获取所有的bdName
         String[] beanDefinitionNames = beanFactory.getBeanDefinitionNames();
-        for (String beanDefinitionName:beanDefinitionNames){
+        for (String beanDefinitionName : beanDefinitionNames){
             BeanDefinition beanDefinition
                     = beanFactory.getBeanDefinition(beanDefinitionName);
             //判断bd是否是一个注解bd
@@ -43,30 +43,30 @@ public class RegisterBeanFactoryPostProcessor implements BeanFactoryPostProcesso
                         ((AnnotatedBeanDefinition) beanDefinition).getMetadata();
                 Set<String> Annotations = metadata.getAnnotationTypes();
                 //循环所有注解，找到aop切面注解类
-                for (String annotation:Annotations)
-                    if (annotation.equals(ConfigurationUtil.AOP_POINTCUT_ANNOTATION))
-                        doScan((GenericBeanDefinition)beanDefinition);
+                for (String annotation : Annotations){
+                    if (annotation.equals(ConfigurationUtil.AOP_POINTCUT_ANNOTATION)) {
+                        doScan((GenericBeanDefinition) beanDefinition);
+                    }
+                }
+
             }
         }
     }
 
-    /**
-     * 扫描所有注解方法
-     * @param beanDefinition
-     */
+    //扫描所有注解方法
     private void doScan(GenericBeanDefinition beanDefinition){
         try {
             String className = beanDefinition.getBeanClassName();
             Class<?> beanDefinitionClazz = Class.forName(className);
             Method[] methods = beanDefinitionClazz.getMethods();
-            for (Method method :methods){
+            for (Method method : methods){
                 Annotation[] annotations = method.getAnnotations();
-                for(Annotation annotation:annotations) {
+                for(Annotation annotation : annotations) {
                     String annotationName = annotation.annotationType().getName();
                     if(annotationName.equals(ConfigurationUtil.BEFORE) ||
                             annotationName.equals(ConfigurationUtil.AFTER)||
                             annotationName.equals(ConfigurationUtil.AROUND)){
-                        doScan(className,method,annotation);
+                        doScan(className, method, annotation);
                     }
 
                 }
@@ -76,13 +76,8 @@ public class RegisterBeanFactoryPostProcessor implements BeanFactoryPostProcesso
         }
     }
 
-    /**
-     * 扫描出所有被代理的类
-     * @param className
-     * @param method
-     * @param annotation
-     */
-    private void doScan(String className,Method method,Annotation annotation){
+    //扫描出所有被代理的类
+    private void doScan(String className, Method method, Annotation annotation){
         ProxyBeanHolder proxyBeanHolder = new ProxyBeanHolder();
         proxyBeanHolder.setClassName(className);
         proxyBeanHolder.setMethodName(method.getName());
@@ -90,7 +85,7 @@ public class RegisterBeanFactoryPostProcessor implements BeanFactoryPostProcesso
         //获取注解上的所有方法
         Method[] annotationMethods = annotation.annotationType().getDeclaredMethods();
         String packagePath = null;
-        for (Method annotationMethod:annotationMethods) {
+        for (Method annotationMethod : annotationMethods) {
             if (annotationMethod.getName().equals("value")){
                 try {
                     packagePath = (String) annotationMethod.invoke(annotation, null);
@@ -115,8 +110,10 @@ public class RegisterBeanFactoryPostProcessor implements BeanFactoryPostProcesso
                     try {
                         lroxyBeanHolderList = ConfigurationUtil
                                 .classzzProxyBeanHolder.get(targetClass);
-                    }catch(Exception e){ e.printStackTrace();}
-                    if (lroxyBeanHolderList==null){
+                    }catch(Exception e){
+                        e.printStackTrace();
+                    }
+                    if (lroxyBeanHolderList == null){
                         lroxyBeanHolderList = new Vector<>();
                     }
                     lroxyBeanHolderList.add(proxyBeanHolder);

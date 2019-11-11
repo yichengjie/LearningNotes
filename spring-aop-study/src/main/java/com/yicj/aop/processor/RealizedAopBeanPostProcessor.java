@@ -1,5 +1,6 @@
 package com.yicj.aop.processor;
 
+import com.yicj.aop.interceptor.CustomizedProxyInterceptor;
 import com.yicj.aop.util.ConfigurationUtil;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;

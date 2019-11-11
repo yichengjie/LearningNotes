@@ -1,4 +1,4 @@
-package com.yicj.aop.processor;
+package com.yicj.aop.interceptor;
 import com.yicj.aop.holder.ProxyBeanHolder;
 import com.yicj.aop.util.ConfigurationUtil;
 import org.springframework.cglib.proxy.MethodInterceptor;
@@ -17,8 +17,9 @@ public class CustomizedProxyInterceptor implements MethodInterceptor  {
     public Object intercept(Object o, Method method, Object[] objects,
                             MethodProxy methodProxy) throws Throwable {
         //处理前置及环绕前置通知
-        for (ProxyBeanHolder proxyBeanHolder: proxyBeanHolderList) {
+        for (ProxyBeanHolder proxyBeanHolder : proxyBeanHolderList) {
             String annotationName = proxyBeanHolder.getAnnotationName();
+            //System.out.println("annotationName : " + annotationName);
             if (annotationName.equals(ConfigurationUtil.BEFORE) ||
                     annotationName.equals(ConfigurationUtil.AROUND))
                 this.doProxy(proxyBeanHolder);
@@ -47,6 +48,8 @@ public class CustomizedProxyInterceptor implements MethodInterceptor  {
     private void doProxy(ProxyBeanHolder proxyBeanHolder){
         String className = proxyBeanHolder.getClassName();
         String methodName = proxyBeanHolder.getMethodName();
+        //System.out.println("className =====> " + className);
+        //System.out.println("methodName ====> " + methodName); // testBefore ,testAfter ,testAround
         Object clazz ;
         try {
             clazz = Class.forName(className);
