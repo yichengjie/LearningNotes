@@ -17,7 +17,7 @@ public class TestAop {
     }
 
     @AfterYicj("com.yicj.aop2.dao")
-    public void testAfter(Object retVal, Method method, Object [] args, Object target){
+    public void testAfter(Method method, Object [] args, Object target){
         System.out.println("after   ------------------  测试成功！");
     }
 

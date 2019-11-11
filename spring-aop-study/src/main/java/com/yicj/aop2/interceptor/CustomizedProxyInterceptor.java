@@ -22,7 +22,7 @@ public class CustomizedProxyInterceptor implements MethodInterceptor  {
             //System.out.println("annotationName : " + annotationName);
             if (annotationName.equals(ConfigurationUtil.BEFORE) ||
                     annotationName.equals(ConfigurationUtil.AROUND)) {
-                this.doProxy(proxyBeanHolder);
+                this.doProxy(proxyBeanHolder,annotationName);
             }
         }
         Object result ;

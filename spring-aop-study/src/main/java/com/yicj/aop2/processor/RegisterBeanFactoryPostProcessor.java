@@ -44,9 +44,9 @@ public class RegisterBeanFactoryPostProcessor implements BeanFactoryPostProcesso
                 //取得bd上的所有注解
                 AnnotationMetadata metadata =
                         ((AnnotatedBeanDefinition) beanDefinition).getMetadata();
-                Set<String> Annotations = metadata.getAnnotationTypes();
+                Set<String> annotations = metadata.getAnnotationTypes();
                 //循环所有注解，找到aop切面注解类
-                for (String annotation : Annotations){
+                for (String annotation : annotations){
                     if (annotation.equals(ConfigurationUtil.AOP_POINTCUT_ANNOTATION)) {
                         doScan((GenericBeanDefinition) beanDefinition);
                     }
