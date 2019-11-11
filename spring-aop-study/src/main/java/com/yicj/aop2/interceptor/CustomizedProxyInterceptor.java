@@ -21,8 +21,9 @@ public class CustomizedProxyInterceptor implements MethodInterceptor  {
             String annotationName = proxyBeanHolder.getAnnotationName();
             //System.out.println("annotationName : " + annotationName);
             if (annotationName.equals(ConfigurationUtil.BEFORE) ||
-                    annotationName.equals(ConfigurationUtil.AROUND))
+                    annotationName.equals(ConfigurationUtil.AROUND)) {
                 this.doProxy(proxyBeanHolder);
+            }
         }
         Object result ;
         try{
