@@ -37,7 +37,7 @@ public class CustomizedProxyInterceptor implements MethodInterceptor  {
             String annotationName = proxyBeanHolder.getAnnotationName();
             if (annotationName.equals(ConfigurationUtil.AFTER) ||
                     annotationName.equals(ConfigurationUtil.AROUND))
-                this.doProxy(proxyBeanHolder);
+                this.doProxy(proxyBeanHolder, annotationName);
         }
         return result;
     }
@@ -46,7 +46,7 @@ public class CustomizedProxyInterceptor implements MethodInterceptor  {
      * 处理代理操作
      * @param proxyBeanHolder
      */
-    private void doProxy(ProxyBeanHolder proxyBeanHolder){
+    private void doProxy(ProxyBeanHolder proxyBeanHolder, String annotationName){
         String className = proxyBeanHolder.getClassName();
         String methodName = proxyBeanHolder.getMethodName();
         //System.out.println("className =====> " + className);
@@ -57,7 +57,11 @@ public class CustomizedProxyInterceptor implements MethodInterceptor  {
             Method[] methods = ((Class) clazz).getMethods();
             for (Method poxyMethod : methods){
                 if (poxyMethod.getName().equals(methodName)){
-                    poxyMethod.invoke(((Class) clazz).newInstance(),null);
+                    if(ConfigurationUtil.BEFORE.equals(annotationName)){
+                        poxyMethod.invoke(((Class) clazz).newInstance(),null);
+                    }else {
+                        poxyMethod.invoke(((Class) clazz).newInstance(),null);
+                    }
                 }
             }
         } catch (Exception e) {

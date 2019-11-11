@@ -11,17 +11,17 @@ import java.lang.reflect.Method;
 @AopJ
 @Component
 public class TestAop {
-    @BeforeYicj("com.yicj.aop.dao")
-    public void testBefore(Method method,Object [] args,Object target){
+    @BeforeYicj("com.yicj.aop2.dao")
+    public void testBefore(Method method, Object [] args, Object target){
         System.out.println("before   ------------------  测试成功！");
     }
 
-    @AfterYicj("com.yicj.aop")
-    public void testAfter(Object retVal,Method method, Object [] args, Object target){
+    @AfterYicj("com.yicj.aop2.dao")
+    public void testAfter(Object retVal, Method method, Object [] args, Object target){
         System.out.println("after   ------------------  测试成功！");
     }
 
-    @AroundYicj("com.yicj.aop.dao")
+    @AroundYicj("com.yicj.aop2.dao")
     public void testAround(){
         System.out.println("around   ------------------  测试成功！");
     }
