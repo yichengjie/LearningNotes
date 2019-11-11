@@ -2,6 +2,7 @@ package com.yicj.aop.processor;
 
 import com.yicj.aop.holder.ProxyBeanHolder;
 import com.yicj.aop.util.ConfigurationUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.AnnotatedBeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -15,6 +16,7 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.Vector;
 
@@ -22,11 +24,12 @@ import java.util.Vector;
 // 其核心代码如下，首先实现BeanFactoryPostProcessor ，
 // 保证其实在对所有的bean完成扫描后，在bean的实例化之前执行，然后再其中按上述思路，
 // scan出所有的目标对象，然后建立起目标对象和通知对象的关联关系，然后放入我们的Map中
+@Slf4j
 public class RegisterBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
     /**
      * 存放需要代理的相关信息类
      */
-    public static volatile List<ProxyBeanHolder> roxyBeanHolderList = new Vector<>();
+    //public static volatile List<ProxyBeanHolder> proxyBeanHolderList = new Vector<>();
 
     @Override
     public void postProcessBeanFactory(
@@ -48,8 +51,12 @@ public class RegisterBeanFactoryPostProcessor implements BeanFactoryPostProcesso
                         doScan((GenericBeanDefinition) beanDefinition);
                     }
                 }
-
             }
+        }
+        for( Map.Entry<String, List<ProxyBeanHolder>> entry : ConfigurationUtil.classzzProxyBeanHolder.entrySet()){
+            String key = entry.getKey();
+            List<ProxyBeanHolder> value = entry.getValue() ;
+            log.info("key : " + key +" , value : " + value);
         }
     }
 
@@ -57,6 +64,7 @@ public class RegisterBeanFactoryPostProcessor implements BeanFactoryPostProcesso
     private void doScan(GenericBeanDefinition beanDefinition){
         try {
             String className = beanDefinition.getBeanClassName();
+            //System.out.println("============> className :  " + className);
             Class<?> beanDefinitionClazz = Class.forName(className);
             Method[] methods = beanDefinitionClazz.getMethods();
             for (Method method : methods){
@@ -68,7 +76,6 @@ public class RegisterBeanFactoryPostProcessor implements BeanFactoryPostProcesso
                             annotationName.equals(ConfigurationUtil.AROUND)){
                         doScan(className, method, annotation);
                     }
-
                 }
             }
         } catch (ClassNotFoundException e) {
@@ -82,6 +89,8 @@ public class RegisterBeanFactoryPostProcessor implements BeanFactoryPostProcesso
         proxyBeanHolder.setClassName(className);
         proxyBeanHolder.setMethodName(method.getName());
         proxyBeanHolder.setAnnotationName(annotation.annotationType().getName());
+        log.info("===========> className : " + className +", methodName : " +
+                method.getName() + ", annotationName : " + annotation.annotationType().getName() );
         //获取注解上的所有方法
         Method[] annotationMethods = annotation.annotationType().getDeclaredMethods();
         String packagePath = null;

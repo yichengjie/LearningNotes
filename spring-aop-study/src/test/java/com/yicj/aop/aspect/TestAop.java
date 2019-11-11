@@ -14,7 +14,7 @@ public class TestAop {
         System.out.println("before   ------------------  测试成功！");
     }
 
-    @AfterYicj("com.yicj.aop.dao")
+    @AfterYicj("com.yicj.aop")
     public void testAfter(){
         System.out.println("after   ------------------  测试成功！");
     }
