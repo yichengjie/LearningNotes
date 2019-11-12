@@ -1,4 +1,4 @@
-package com.yicj.api.beandefinition.s1;
+package com.yicj.api.registry.s3;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

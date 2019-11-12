@@ -1,4 +1,4 @@
-package com.yicj.api.beandefinition.s1;
+package com.yicj.api.registry.s1;
 
 import com.yicj.api.entity.Hello;
 import org.springframework.beans.BeansException;

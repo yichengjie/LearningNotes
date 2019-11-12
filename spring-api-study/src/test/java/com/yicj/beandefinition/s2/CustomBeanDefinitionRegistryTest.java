@@ -1,6 +1,6 @@
-package com.yicj.beandefinition.s1;
+package com.yicj.beandefinition.s2;
 
-import com.yicj.api.registry.s1.SpringConfiguration;
+import com.yicj.api.registry.s2.SpringConfiguration;
 import com.yicj.api.entity.Hello;
 import org.junit.Test;
 import org.junit.runner.RunWith;
