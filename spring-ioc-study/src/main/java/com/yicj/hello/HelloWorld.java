@@ -11,7 +11,7 @@ public class HelloWorld {
         test2() ;
     }
     private static void test1(){
-        //ApplicationContext context = new ClassPathXmlApplicationContext("com/yicj/hello/beans.xml") ;
+        //ApplicationContext context = new ClassPathXmlApplicationContext("com/yicj/s1/beans.xml") ;
         ClassPathResource resource = new ClassPathResource("com/yicj/hello/beans.xml" );
         XmlBeanFactory factory = new XmlBeanFactory(resource) ;
         System.out.println("--------------------------------------");

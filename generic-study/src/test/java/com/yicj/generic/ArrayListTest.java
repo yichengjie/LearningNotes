@@ -59,7 +59,7 @@ public class ArrayListTest {
         Object array = Array.newInstance(componentType, 5);
         System.out.println("array name: " + array.getClass().getName());
         //设置数组内容
-        Array.set(array, 3, "hello world");
+        Array.set(array, 3, "s1 world");
         String str = (String) Array.get(array, 3);
         System.out.println("get value : " + str);
         ///获取数组长度

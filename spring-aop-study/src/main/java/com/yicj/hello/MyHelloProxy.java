@@ -20,7 +20,7 @@ public class MyHelloProxy {
         public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
             System.out.println("method : " + method.getName());
             System.out.println("args : " + args);
-            return "hello";
+            return "s1";
         }
     }
 

@@ -19,7 +19,7 @@ public class FutureTest1 {
         @Override
         public String call() throws Exception {
             TimeUnit.SECONDS.sleep(3);
-            return "hello world";
+            return "s1 world";
         }
     }
 }

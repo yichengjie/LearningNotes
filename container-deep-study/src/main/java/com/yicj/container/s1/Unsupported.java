@@ -32,7 +32,7 @@ public class Unsupported {
     }
 
     public static void main(String[] args) {
-        String msg = "hello" ;
+        String msg = "s1" ;
         String [] array = {"1","2","3","4","5","6","7","8"} ;
         List<String> list = Arrays.asList(array) ;
         //List<String> list = new ArrayList<>() ;

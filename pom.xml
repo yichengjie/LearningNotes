@@ -19,6 +19,7 @@
         <module>design-pattern-study</module>
 		<module>spring-ioc-study</module>
         <module>spring-aop-study</module>
+        <module>spring-api-study</module>
     </modules>
 
     <dependencies>
