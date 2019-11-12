@@ -1,0 +1,4 @@
+1. 自定义BeanDefinitionRegistryPostProcessor：
+        https://blog.csdn.net/liyantianmin/article/details/81047373
+2. pool化技术：
+        https://blog.csdn.net/liyantianmin/article/details/86591742
