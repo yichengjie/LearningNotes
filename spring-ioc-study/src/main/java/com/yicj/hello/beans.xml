@@ -12,6 +12,12 @@
         <property name="username" value="zhang san!!!"/>
         <property name="pen" ref="pen"/>
     </bean>
+
+    <bean id="newsBean" class="com.yicj.hello.entity.FXNewsBean" scope="prototype" />
+
+    <bean id="mockPersister" class="com.yicj.hello.service.impl.MockNewsPersister">
+        <property name="newsBean" ref="newsBean" />
+    </bean>
 </beans>
 
 

@@ -1,10 +1,9 @@
-package com.yicj.hello.entity;
+package com.yicj.lookup2.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class FXNewsBean {
