@@ -1,4 +1,4 @@
-package com.yicj.interf.utils;
+package com.yicj.common.utils;
 
 public class ArrayUtils {
     public static boolean isEmpty(String[] newsIds) {

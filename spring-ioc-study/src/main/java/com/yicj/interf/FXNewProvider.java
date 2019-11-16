@@ -1,12 +1,12 @@
 package com.yicj.interf;
 
 
+import com.yicj.common.utils.ArrayUtils;
 import com.yicj.interf.callback.FXNewsListenerCallback;
 import com.yicj.interf.callback.FXNewsPersisterCallback;
 import com.yicj.interf.entity.FXNewsBean;
 import com.yicj.interf.service.IFXNewsListener;
 import com.yicj.interf.service.IFXNewsPersister;
-import com.yicj.interf.utils.ArrayUtils;
 
 public class FXNewProvider implements  FXNewsListenerCallback , FXNewsPersisterCallback {
 
