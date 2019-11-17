@@ -1,4 +1,4 @@
-package com.yicj.lookup2.service;
+package com.yicj.common.service;
 
 
 public interface IFXNewsPersister {

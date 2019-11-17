@@ -1,4 +1,4 @@
-package com.yicj.lookup2.entity;
+package com.yicj.common.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

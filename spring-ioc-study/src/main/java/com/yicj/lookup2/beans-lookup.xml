@@ -4,14 +4,16 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="newsBean" class="com.yicj.lookup2.entity.FXNewsBean" scope="prototype" />
+    <bean id="newsBean" class="com.yicj.common.entity.FXNewsBean" scope="prototype" />
 
-    <bean id="mockPersister" class="com.yicj.lookup2.service.impl.MockNewsPersister">
+    <bean id="mockPersister" class="com.yicj.lookup2.serviceimpl.MockNewsPersister">
         <!--使用property得到的对象是单例，每次都是同一个-->
         <!--<property name="newsBean" ref="newsBean" />-->
         <!--使用方法仅在调用方法时返回新对象，类中属性newsBean一直未null，因为没地方给赋值-->
         <lookup-method name="getNewsBean" bean="newsBean" />
     </bean>
+
+    <bean id="mockPersister2" class="com.yicj.lookup2.serviceimpl.MockNewsPersister2" />
 </beans>
 
 

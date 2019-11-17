@@ -1,7 +1,7 @@
-package com.yicj.lookup2.service.impl;
+package com.yicj.lookup2.serviceimpl;
 
-import com.yicj.lookup2.entity.FXNewsBean;
-import com.yicj.lookup2.service.IFXNewsPersister;
+import com.yicj.common.entity.FXNewsBean;
+import com.yicj.common.service.IFXNewsPersister;
 
 public class MockNewsPersister implements IFXNewsPersister {
     public FXNewsBean newsBean ;
