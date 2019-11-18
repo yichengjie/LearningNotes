@@ -1,4 +1,4 @@
-package com.yicj.source.s1;
+package com.yicj.messagesource.s1;
 
 import org.springframework.aop.TargetSource;
 import org.springframework.aop.framework.ProxyFactory;
