@@ -1,4 +1,4 @@
-package com.yicj.s1;
+package com.yicj.s2.entity;
 
 public class TaskExecutionContent {
 

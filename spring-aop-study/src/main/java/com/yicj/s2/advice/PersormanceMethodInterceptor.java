@@ -1,4 +1,4 @@
-package com.yicj.s1.advice;
+package com.yicj.s2.advice;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aopalliance.intercept.MethodInterceptor;
@@ -15,7 +15,7 @@ public class PersormanceMethodInterceptor implements MethodInterceptor {
             return invocation.proceed() ;
         }finally {
             watch.stop();
-            log.info(watch.toString());
+            log.info("===================> {}" , watch.toString());
         }
     }
 }

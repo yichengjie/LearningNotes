@@ -1,7 +1,7 @@
-package com.yicj.s1.service.impl;
+package com.yicj.s2.service.impl;
 
-import com.yicj.s1.entity.TaskExecutionContent;
-import com.yicj.s1.service.ITask;
+import com.yicj.s2.entity.TaskExecutionContent;
+import com.yicj.s2.service.ITask;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

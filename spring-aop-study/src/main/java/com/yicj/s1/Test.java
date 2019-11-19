@@ -17,9 +17,9 @@ public class Test {
 
     public static void main(String[] args) {
         //基于接口的代码
-        //testInterfaceProxy() ;
+        testInterfaceProxy() ;
         //testExtendsProxy() ;
-        testIntroductionProxy() ;
+        //testIntroductionProxy() ;
     }
 
     //基于接口的代理
