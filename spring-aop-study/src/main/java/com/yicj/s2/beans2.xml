@@ -1,0 +1,35 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--target对象-->
+    <bean id="task" class="com.yicj.s2.service.impl.MockTask"/>
+    <!--advice-->
+    <bean id="performanceInterceptor" class="com.yicj.s2.advice.PersormanceMethodInterceptor" />
+    <!--pointcut配置-->
+    <bean id="pointcut" class="org.springframework.aop.support.NameMatchMethodPointcut" >
+        <property name="mappedName" value="execute" />
+    </bean>
+    <!--advisor配置-->
+    <bean id="performanceAdvisor" class="org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor" >
+        <property name="pointcut" ref="pointcut" />
+        <property name="advice" ref="performanceInterceptor" />
+    </bean>
+    <!--织入器配置，半自动扫描advisor-->
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator" >
+        <property name="beanNames">
+            <list>
+                <value>task</value>
+            </list>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>performanceAdvisor</value>
+            </list>
+        </property>
+    </bean>
+</beans>
+
+
