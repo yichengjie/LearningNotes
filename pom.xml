@@ -20,6 +20,7 @@
 		<module>spring-ioc-study</module>
         <module>spring-aop-study</module>
         <module>spring-api-study</module>
+        <module>spring-aop-study2</module>
     </modules>
 
     <dependencies>
