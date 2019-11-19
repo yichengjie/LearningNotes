@@ -10,5 +10,6 @@ public class Test {
                 new ClassPathXmlApplicationContext("com/yicj/s2/beans.xml") ;
         ITask task = (ITask)context.getBean("taskProxy") ;
         task.execute(null);
+        System.out.println(task.getClass().getName());
     }
 }

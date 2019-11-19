@@ -1,0 +1,35 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--target对象-->
+    <bean id="task" class="com.yicj.s2.service.impl.MockTask" scope="prototype"/>
+
+    <bean id="introductionInterceptor"
+          class="org.springframework.aop.support.DelegatingIntroductionInterceptor" scope="prototype">
+        <constructor-arg>
+            <bean class="com.yicj.s3.service.impl.CounterImpl" />
+        </constructor-arg>
+    </bean>
+
+    <bean id="introducedTask" class="org.springframework.aop.framework.ProxyFactoryBean" scope="prototype">
+        <!--注意这里使用的taskName而不是通过rel指定prototype类型的依赖-->
+        <property name="targetName" value="task" />
+        <property name="proxyInterfaces">
+            <list>
+                <value>com.yicj.s3.service.ITask</value>
+                <value>com.yicj.s3.service.ICounter</value>
+            </list>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>introductionInterceptor</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>
+
+
