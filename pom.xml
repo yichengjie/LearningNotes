@@ -22,6 +22,7 @@
         <module>spring-api-study</module>
         <module>spring-aop-study2</module>
         <module>spring-jdbc-study</module>
+        <module>spring-boot-study</module>
     </modules>
 
     <dependencies>
