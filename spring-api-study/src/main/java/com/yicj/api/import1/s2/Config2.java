@@ -4,6 +4,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 @Configuration(value="ivan_test")
-@Import(value={UserServiceBeanDefinitionRegistrar.class})
+@Import({UserServiceBeanDefinitionRegistrar.class})
 public class Config2 {
 }

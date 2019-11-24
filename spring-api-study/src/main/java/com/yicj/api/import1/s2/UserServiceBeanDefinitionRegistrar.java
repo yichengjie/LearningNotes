@@ -13,7 +13,8 @@ import org.springframework.core.type.AnnotationMetadata;
 // Spring IOC容器里Bean的定义，想做些什么也就方便很多了。
 public class UserServiceBeanDefinitionRegistrar  implements ImportBeanDefinitionRegistrar {
     @Override
-    public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
+    public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata,
+                                        BeanDefinitionRegistry registry) {
         BeanDefinitionBuilder builder =
                 BeanDefinitionBuilder.rootBeanDefinition(UserServiceImpl.class) ;
         registry.registerBeanDefinition("userService",builder.getBeanDefinition());

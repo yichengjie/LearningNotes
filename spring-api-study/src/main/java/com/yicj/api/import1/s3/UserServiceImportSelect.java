@@ -7,10 +7,8 @@ import org.springframework.core.type.AnnotationMetadata;
 import java.util.Map;
 
 public class UserServiceImportSelect implements ImportSelector {
-
     @Override
     public String[] selectImports(AnnotationMetadata importingClassMetadata) {
-
         Map<String,Object> map = importingClassMetadata.getAnnotationAttributes(
                 EnableUserService.class.getName(),true) ;
         for(Map.Entry<String,Object> entry: map.entrySet()){
