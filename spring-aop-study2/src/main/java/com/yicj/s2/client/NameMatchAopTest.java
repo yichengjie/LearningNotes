@@ -30,9 +30,10 @@ public class NameMatchAopTest {
         advisor.setAdvice(advice);
         //实例化织入器
         ProxyFactory weaver = new ProxyFactory(task) ;
-        weaver.setInterfaces(new Class[]{ITask.class});
+        //这里可以不设置
+        //weaver.setInterfaces(new Class[]{ITask.class});
         weaver.addAdvisor(advisor);
-        //获取代理对象
+        //        //获取代理对象
         ITask proxyObj = (ITask)weaver.getProxy() ;
         proxyObj.execute(null);
     }
