@@ -3,6 +3,8 @@ package com.yicj.s2.client;
 import com.yicj.s2.advice.PerformanceMethodInterceptor;
 import com.yicj.s2.service.ITask;
 import com.yicj.s2.service.impl.MockTask;
+import org.springframework.aop.Advisor;
+import org.springframework.aop.framework.Advised;
 import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 import org.springframework.aop.support.NameMatchMethodPointcut;
@@ -12,8 +14,8 @@ import org.springframework.aop.support.NameMatchMethodPointcutAdvisor;
 //根据方法名称匹配的aop测试
 public class NameMatchAopTest {
     public static void main(String[] args) {
-        //test1() ;
-        test2() ;
+        test1() ;
+        //test2() ;
     }
 
     public static void test1(){
@@ -33,9 +35,19 @@ public class NameMatchAopTest {
         //这里可以不设置
         //weaver.setInterfaces(new Class[]{ITask.class});
         weaver.addAdvisor(advisor);
-        //        //获取代理对象
-        ITask proxyObj = (ITask)weaver.getProxy() ;
+
+        //获取代理对象
+        Object proxy = weaver.getProxy();
+        ITask proxyObj = (ITask)proxy ;
         proxyObj.execute(null);
+
+        //Spring Aop返回的代理对象都可以强制转型为Advised，以查询代理对象相关的信息
+        Advised advised = (Advised)proxy ;
+        Advisor[] advisors = advised.getAdvisors();
+        for (int i = 0; i < advisors.length; i++) {
+            System.out.println(advisors[i]);
+        }
+
     }
 
     public static void test2(){
