@@ -10,7 +10,7 @@ public class AnnotationMethodAspectTest {
         String path = "com/yicj/s3/client/anno-method.xml";
         ApplicationContext context = new ClassPathXmlApplicationContext(path) ;
         Object proxy = context.getBean("target");
-        ((FooMethod)proxy).method1();
+        //((FooMethod)proxy).method1();
         ((FooMethod)proxy).method2();
     }
 }

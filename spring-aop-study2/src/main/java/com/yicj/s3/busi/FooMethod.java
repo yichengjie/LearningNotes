@@ -11,5 +11,6 @@ public class FooMethod {
     @AnyJoinpontAnnotation(name = "delete")
     public void method2(){
         System.out.println("method2 execution.");
+        int a = 1/0 ;
     }
 }
