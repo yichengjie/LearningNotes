@@ -1,0 +1,2 @@
+1.@EnableAutoConfiguration实际上是借助@Import的支持，收集和注册特定场景相关的bean定义。
+2.SpringFactoriesLoader
