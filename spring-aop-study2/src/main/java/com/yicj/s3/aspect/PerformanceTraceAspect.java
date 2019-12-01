@@ -34,8 +34,6 @@ import org.springframework.util.StopWatch;
 @Slf4j
 public class PerformanceTraceAspect {
 
-//    @Pointcut("execution(public void *.method1()) || " +
-//              "execution(public void *.method2())")
     @Pointcut("execution(public void method1()) || " +
             "execution(public void method2())")
     public void pointcutName() {}
