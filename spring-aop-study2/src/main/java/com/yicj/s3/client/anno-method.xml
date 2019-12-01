@@ -5,9 +5,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
     <!--target对象-->
-    <bean id="target" class="com.yicj.s3.busi.Foo2" />
+    <bean id="target" class="com.yicj.s3.busi.FooMethod" />
     <!--aspect-->
-    <bean id="performanceAspect" class="com.yicj.s3.aspect.AnnotationDemoAspect" />
+    <bean id="performanceAspect" class="com.yicj.s3.aspect.AnnotationMethodAspect" />
     <aop:aspectj-autoproxy proxy-target-class="true" />
 </beans>
 

@@ -7,7 +7,7 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 
 @Aspect
-public class AnnotationDemoAspect {
+public class AnnotationTypeAspect {
 
     @Pointcut("execution(* com.yicj.s3..*.method1()) && @within(anno)")
     public void mypointcut(AnyJoinpontAnnotation anno){}
@@ -17,5 +17,4 @@ public class AnnotationDemoAspect {
         String name = anno.name() ;
         System.out.println("name : " + name);
     }
-
 }
