@@ -9,6 +9,7 @@
 
     <dubbo:application name="demo-provider" />
     <dubbo:protocol name="dubbo" port="20880" />
-    <dubbo:service interface="com.yicj.s2.service.CurrencyRateService" ref="serviceImpl" register="N/A"/>
+    <dubbo:service interface="com.yicj.s2.service.CurrencyRateService"
+                   ref="serviceImpl" registry="N/A"/>
     <bean id="serviceImpl" class="com.yicj.s2.service.impl.CurrencyRateServiceImpl" />
 </beans>
