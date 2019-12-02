@@ -20,7 +20,7 @@ public class ShutdownLatch implements ShutdownLatchMBean {
         if(running.compareAndSet(false,true)){
             MBeanServer mBeanServer = ManagementFactory.getPlatformMBeanServer() ;
             //ObjectName objectName = new ObjectName(domain, "name", "ShutdownLatch");
-            ObjectName objectName = new ObjectName("ext:type=ShutdownLatch");
+            ObjectName objectName = new ObjectName("jmx:type=ShutdownLatch");
             mBeanServer.registerMBean(this,objectName) ;
             while (running.get()){
                 TimeUnit.SECONDS.sleep(checkIntervalInSeconds);
