@@ -1,9 +1,10 @@
-package com.yicj.s2.ext;
+package com.yicj.dubbo.ext;
+
+import javax.management.MBeanServer;
+import javax.management.ObjectName;
 import java.lang.management.ManagementFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-import javax.management.MBeanServer;
-import javax.management.ObjectName;
 
 public class ShutdownLatch implements ShutdownLatchMBean {
     protected AtomicBoolean running = new AtomicBoolean(false) ;
@@ -19,7 +20,7 @@ public class ShutdownLatch implements ShutdownLatchMBean {
         if(running.compareAndSet(false,true)){
             MBeanServer mBeanServer = ManagementFactory.getPlatformMBeanServer() ;
             //ObjectName objectName = new ObjectName(domain, "name", "ShutdownLatch");
-            ObjectName objectName = new ObjectName("jmx:type=ShutdownLatch");
+            ObjectName objectName = new ObjectName("ext:type=ShutdownLatch");
             mBeanServer.registerMBean(this,objectName) ;
             while (running.get()){
                 TimeUnit.SECONDS.sleep(checkIntervalInSeconds);

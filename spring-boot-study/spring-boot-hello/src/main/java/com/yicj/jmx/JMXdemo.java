@@ -22,12 +22,12 @@ public class JMXdemo {
 	 */
 	public static void main(String[] args) throws MalformedObjectNameException, NullPointerException, InstanceAlreadyExistsException, MBeanRegistrationException, NotCompliantMBeanException, InterruptedException {
 		MBeanServer server=ManagementFactory.getPlatformMBeanServer();
-		ObjectName objectName=new ObjectName("jmx:type=User");
+		ObjectName objectName=new ObjectName("ext:type=User");
 		User bean=new User();
 		server.registerMBean(bean, objectName);
 		String oldName=null;
 		String oldPwd=null;
-		System.out.println("jmx started!!!");
+		System.out.println("ext started!!!");
 		while(true){
 			if(oldName != bean.getName()|| oldPwd != bean.getPasswd()){
 				System.out.println(bean.getName()+":"+bean.getPasswd());
