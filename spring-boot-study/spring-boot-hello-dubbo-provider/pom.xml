@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-boot-hello-dubbo</artifactId>
+    <artifactId>spring-boot-hello-dubbo-provider</artifactId>
 
 
     <dependencies>
@@ -30,6 +30,7 @@
             <artifactId>spring-boot-starter-dubbo</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+
     </dependencies>
 
 </project>

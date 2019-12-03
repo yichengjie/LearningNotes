@@ -21,7 +21,7 @@ public class DubboHealthIndicatorConfiguration {
 
     //获取ioc容器中的指定类型的bean,
     // 针对当前应用引用的所有dubbo服务进行健康检查
-    @Autowired
+    @Autowired(required = false)
     private Map<String, ReferenceBean> references ;
 
     @Bean

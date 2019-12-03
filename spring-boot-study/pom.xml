@@ -16,9 +16,10 @@
         <module>spring-boot-starter-dubbo</module>
         <module>spring-boot-starter-webapi</module>
         <module>spring-boot-hello-webapi</module>
-        <module>spring-boot-hello-dubbo</module>
+        <module>spring-boot-hello-dubbo-provider</module>
         <module>spring-boot-hello-actuator</module>
         <module>spring-boot-starter-dubbo-health-indicator</module>
+        <module>spring-boot-hello-dubbo-consumer</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
