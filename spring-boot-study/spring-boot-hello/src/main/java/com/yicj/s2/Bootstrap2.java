@@ -7,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Bootstrap2 {
     public static void main(String[] args) throws Exception {
-        String path = "com/yicj/s2/services.xml" ;
+        String path = "services.xml";
         ApplicationContext context = new ClassPathXmlApplicationContext(path) ;
         ((AbstractApplicationContext)context).registerShutdownHook();
         ShutdownLatch latch = new ShutdownLatch("your_domain_for_mbeans") ;

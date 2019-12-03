@@ -9,7 +9,7 @@ import java.io.IOException;
 public class Bootstrap {
 
     public static void main(String[] args) throws IOException {
-        String path = "com/yicj/s2/services.xml" ;
+        String path = "services.xml";
         ApplicationContext context = new ClassPathXmlApplicationContext(path) ;
         ((AbstractApplicationContext)context).registerShutdownHook();
         System.in.read() ;
