@@ -37,25 +37,25 @@ import static springfox.documentation.schema.AlternateTypeRules.newRule;
 public class WebApiAutoConfiguration extends WebMvcConfigurationSupport {
     @Autowired
     private TypeResolver typeResolver ;
-    @Value("${springfox.api.group:[your api group name]}")
+    @Value("${springfox.api.group}")
     private String apiGroupName ;
-    @Value("${springfox.api.title:[set a api title via 'springfox.api.title']}")
+    @Value("${springfox.api.title}")
     private String title ;
-    @Value("${springfox.api.description}:[add your api description via 'springfox.api.description']")
+    @Value("${springfox.api.description}")
     private String description ;
-    @Value("${springfox.api.version}:[set special api version via 'springfox.api.version']")
+    @Value("${springfox.api.version}")
     private String version ;
-    @Value("${springfox.api.termsOfServiceUrl}:[set termsOfServiceUrl via 'springfox.api.termsOfServiceUrl']")
+    @Value("${springfox.api.termsOfServiceUrl}")
     private String termsOfServiceUrl ;
-    @Value("${springfox.api.contactName}:[set termsOfServiceUrl via 'springfox.api.termsOfServiceUrl']")
+    @Value("${springfox.api.contactName}")
     private String contactName ;
-    @Value("${springfox.api.contactEmail}:[set termsOfServiceUrl via 'springfox.api.termsOfServiceUrl']")
+    @Value("${springfox.api.contactEmail}")
     private String contactEmail ;
-    @Value("${springfox.api.contactUrl}:[set termsOfServiceUrl via 'springfox.api.termsOfServiceUrl']")
+    @Value("${springfox.api.contactUrl}")
     private String contactUrl ;
-    @Value("${springfox.api.license}:Your WebAPI License")
+    @Value("${springfox.api.license}")
     private String license ;
-    @Value("${springfox.api.licenseUrl}:http://yicj.com")
+    @Value("${springfox.api.licenseUrl}")
     private String licenseUrl ;
 
     @Bean

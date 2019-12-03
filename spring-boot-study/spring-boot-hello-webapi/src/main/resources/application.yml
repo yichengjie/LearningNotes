@@ -1,0 +1,12 @@
+springfox:
+  api:
+    group: "Group"
+    title: "Title"
+    description : "描述"
+    version: "1.0.0"
+    termsOfServiceUrl: "termsOfServiceUrl"
+    contactName: "yicj"
+    contactEmail: "626659321@qq.com"
+    contactUrl: "http://yicj.com"
+    license: "license"
+    licenseUrl: "licenseUrl"
