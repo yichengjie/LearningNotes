@@ -20,6 +20,8 @@
         <module>spring-boot-hello-actuator</module>
         <module>spring-boot-starter-dubbo-health-indicator</module>
         <module>spring-boot-hello-dubbo-consumer</module>
+        <module>spring-boot-starter-metrics</module>
+        <module>spring-boot-hello-metrics</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>

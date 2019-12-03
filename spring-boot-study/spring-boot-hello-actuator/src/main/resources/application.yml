@@ -1,6 +1,4 @@
 management:
-  server:
-    port: 9090
   endpoints:
     web:
       exposure: #默认值访问health,info端点，用*可以包含全部端点

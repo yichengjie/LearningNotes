@@ -1,0 +1,4 @@
+metrics:
+  mbeans:
+    domain:
+      name: "com.yicj.metrics"

@@ -24,7 +24,6 @@
         <module>spring-jdbc-study</module>
         <module>spring-boot-study</module>
         <module>java-spi-study</module>
-        <module>dubbo-study</module>
     </modules>
 
     <dependencies>
