@@ -1,4 +1,6 @@
 package com.yicj.dubbo.entity;
 
-public class ExchangeRate {
+import java.io.Serializable;
+
+public class ExchangeRate implements Serializable {
 }

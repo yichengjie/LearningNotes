@@ -2,6 +2,7 @@ package com.yicj.dubbo.config;
 
 import com.alibaba.dubbo.config.spring.ReferenceBean;
 import com.yicj.dubbo.indicator.DubboHealthIndicator;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.health.CompositeHealthIndicator;
 import org.springframework.boot.actuate.health.HealthAggregator;
@@ -15,6 +16,7 @@ import java.util.Map;
 
 @Configuration
 @ConditionalOnClass(name = {"com.alibaba.dubbo.rpc.Exporter"})
+@Slf4j
 public class DubboHealthIndicatorConfiguration {
     @Autowired
     private HealthAggregator healthAggregator ;
@@ -27,10 +29,14 @@ public class DubboHealthIndicatorConfiguration {
     @Bean
     public HealthIndicator dubboHealthIndicator(){
         Map<String,HealthIndicator> indicators = new HashMap<>() ;
-        for(String key : references.keySet()){
-            final ReferenceBean bean = references.get(key) ;
-            String tmp = key.startsWith("&") ? key.replaceFirst("&","") : key ;
-            indicators.put(tmp,new DubboHealthIndicator(bean)) ;
+        log.info("references ==========> " + references);
+        if(references != null){
+            for(String key : references.keySet()){
+                final ReferenceBean bean = references.get(key) ;
+                log.info("=========> " + key);
+                String tmp = key.startsWith("&") ? key.replaceFirst("&","") : key ;
+                indicators.put(tmp, new DubboHealthIndicator(bean)) ;
+            }
         }
         return new CompositeHealthIndicator(healthAggregator,indicators) ;
     }

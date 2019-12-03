@@ -1,4 +1,6 @@
 package com.yicj.dubbo.entity;
 
-public class CurrencyPair {
+import java.io.Serializable;
+
+public class CurrencyPair implements Serializable {
 }
