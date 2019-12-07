@@ -4,3 +4,6 @@ target/
 .classpath
 .idea
 *.iml
+classes/
+lib/
+webapp/META-INF
