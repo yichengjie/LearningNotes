@@ -11,12 +11,12 @@
     <!--BeanNameUrlHandlerMapping要求bean的name定义要以斜杠开头-->
     <bean name="/ttmRateListController.do" class="com.yicj.mvc.controller.TTMRateListController">
         <property name="ttmRateService" ref="ttmRateService" />
-        <property name="viewName" value="ttRateList" />
+        <property name="viewName" value="ttmRateList" />
     </bean>
 
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/jsp"/>
+        <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 </beans>
