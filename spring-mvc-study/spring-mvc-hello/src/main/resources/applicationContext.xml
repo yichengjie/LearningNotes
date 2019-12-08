@@ -10,5 +10,5 @@
 
     <context:component-scan base-package="com.yicj.mvc" />
 
-    <bean id="ttmRateService" class="com.yicj.mvc.service.impl.TTMRateServiceImpl" />
+    <bean id="ttmRateService" class="com.yicj.mvc.service.impl.MockTTMRateService" />
 </beans>
