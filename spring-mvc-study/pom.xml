@@ -11,6 +11,9 @@
 
     <artifactId>spring-mvc-study</artifactId>
     <packaging>pom</packaging>
+    <properties>
+        <spring.mvc.version>4.2.5.RELEASE</spring.mvc.version>
+    </properties>
     <modules>
         <module>spring-mvc-hello</module>
     </modules>
@@ -19,6 +22,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
+            <version>${spring.mvc.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>

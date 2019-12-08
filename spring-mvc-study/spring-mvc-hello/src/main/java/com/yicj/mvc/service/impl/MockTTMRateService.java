@@ -6,18 +6,30 @@ import com.yicj.mvc.service.ITTMRateService;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-public class MockTTMRateService implements ITTMRateService{
+import java.util.Map;
 
-    @Override
-    public List<TTMRate> getTTMRatesToday() {
-        TradeDate tradeDate1 = TradeDate.valueOf("20080302") ;
-        TTMRate USD_JPY = new TTMRate(tradeDate1, "USD/JPY", new BigDecimal("121.53")) ;
-        TTMRate EUR_USD = new TTMRate(tradeDate1,"EUR/USD",new BigDecimal("1.8950")) ;
+public class MockTTMRateService implements ITTMRateService{
+    private Map<TradeDate,List<TTMRate>> mockData = new HashMap<TradeDate, List<TTMRate>>() ;
+
+    public MockTTMRateService(){
+        TradeDate tradeDate = TradeDate.valueOf("20080302") ;
+        TTMRate USD_JPY = new TTMRate(tradeDate, "USD/JPY", new BigDecimal("121.53")) ;
+        TTMRate EUR_USD = new TTMRate(tradeDate,"EUR/USD",new BigDecimal("1.8950")) ;
         List<TTMRate> rateList = new ArrayList<TTMRate>() ;
         rateList.add(USD_JPY) ;
         rateList.add(EUR_USD) ;
-        return rateList;
+        mockData.put(tradeDate,rateList) ;
+    }
+
+    @Override
+    public List<TTMRate> getTTMRatesToday(TradeDate tradeDate) {
+        List<TTMRate> ttmRates = mockData.get(tradeDate) ;
+        if(ttmRates == null){
+            return new ArrayList<TTMRate>() ;
+        }
+        return ttmRates;
     }
 }
 
